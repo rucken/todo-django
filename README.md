@@ -13,7 +13,7 @@ A simple todo application demonstrating the basic usage of [rucken](https://gith
 - Install virtual env for isolate libs used on project `pip install virtualenv` and init it `virtualenv venv`
 - Swicth to virtual env `venv\Scripts\activate` or on windows mingw32 `source venv/Scripts/activate`
 - run `pip install -r requirements.txt` to install project dependencies
-- run `python manage.py migrate rucken_todo 0001_initial` to init first migrations
+- run `python manage.py migrate rucken_todo 0001_initial` to init first migrations if run on windows
 - run `python manage.py migrate` to init all migrations
 - Go to frontend `cd frontend` and run `npm install` to install frontend dependencies
 - Build frontend, run `ng build --prod  --env=dev --aot=false` and `npm run app.add-version`
