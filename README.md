@@ -23,6 +23,7 @@ virtualenv venv
 source venv/Scripts/activate
 #venv\Scripts\activate
 pip install -r requirements.txt
+python manage.py migrate rucken_todo 0001_initial
 python manage.py migrate
 python manage.py collectstatic --noinput
 pip freeze > requirements.txt

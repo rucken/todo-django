@@ -57,7 +57,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'app.helpers.disable_csrf.DisableCSRF'
+    'app.helpers.disable_csrf.DisableCSRF',
+    'spa.middleware.SPAMiddleware',
 )
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -211,15 +212,15 @@ STATIC_URL = '/static/'
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
+    os.path.join(PROJECT_ROOT, '..', 'frontend', 'dist'),
 )
-
 # http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
 AWS_S3_HOST = 's3.eu-central-1.amazonaws.com'
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 if DEBUG:
-    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+    STATICFILES_STORAGE = 'spa.storage.SPAStaticFilesStorage'
 else:
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
     STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
