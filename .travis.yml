@@ -1,0 +1,15 @@
+language: python
+python:
+- '2.7'
+sudo: required
+install:
+- source scripts/install.sh
+script:
+- cd ..
+- source scripts/test.sh
+after_success:
+- cd ..
+- source scripts/deploy.sh
+branches:
+  only:
+    - develop
