@@ -1,90 +1,29 @@
-# Install external
+## rucken-todo-django
 
-## Install GIT
-https://git-scm.com/download/win
-## Install SourceTree
-https://www.sourcetreeapp.com/
-## Install Visual Studio Code
-https://code.visualstudio.com/
+[![Build Status][travis-image]][travis-url]
 
-# Prepare backend
 
-## Install external
+A simple todo application demonstrating the basic usage of [rucken](https://github.com/site15/rucken-todo-django) with Django REST framework.
 
-### Install Python 2.7
-http://docs.python-guide.org/en/latest/starting/install/win/
-### Install Heroku CLI
-https://devcenter.heroku.com/articles/heroku-command-line
 
-## Install
-```
-pip install virtualenv
-virtualenv venv
-source venv/Scripts/activate
-#venv\Scripts\activate
-pip install -r requirements.txt
-python manage.py migrate rucken_todo 0001_initial
-python manage.py migrate
-python manage.py collectstatic --noinput
-pip freeze > requirements.txt
-python manage.py createsuperuser
-```
-## Start server
-```
-source venv/Scripts/activate
-#venv\Scripts\activate
-python manage.py migrate
-python manage.py collectstatic --noinput
-python manage.py createsuperuser
-#admin: pa55w0rd
-python manage.py makemigrations -n Name
-python manage.py makemigrations --empty rucken_todo -n Name
-python manage.py runserver 0.0.0.0:5000
-```
-## Push repository
-```
-git add .
-git commit -m "prepare backend"
-git push -u origin master
-```
-# Prepare frontend
+### Usage
+- Clone or fork this repository `git clone https://github.com/site15/rucken-todo-django.git`
+- Make sure you have [Python](https://www.python.org/downloads/) installed version 2.7.x
+- Open comand line in folder `rucken-todo-django`
+- Install virtual env for isolate libs used on project `pip install virtualenv` and init it `virtualenv venv`
+- Swicth to virtual env `venv\Scripts\activate` or on windows mingw32 `source venv/Scripts/activate`
+- run `pip install -r requirements.txt` to install project dependencies
+- run `python manage.py migrate rucken_todo 0001_initial` to init first migrations
+- run `python manage.py migrate` to init all migrations
+- Go to frontend `cd frontend` and run `npm install` to install frontend dependencies
+- Build frontend, run `ng build --prod  --env=dev --aot=false` and `npm run app.add-version`
+- Collect static `python manage.py collectstatic --noinput`
+- Run server `python manage.py runserver 0.0.0.0:5000`
+- Open browser to [`http://localhost:5000`](http://localhost:5000)
 
-## Install external
+## License
 
-### Install NodeJS 6
-https://nodejs.org/en/
+MIT
 
-## Install
-```
-npm install -g npm
-npm install -g angular-cli
-npm install -g typings
-cd frontend
-npm install
-```
-## Run standalone frontend application with watch
-```
-cd frontend
-ng serve --env=dev
-```
-## Run frontend application from backend 
-
-### Build and copy frontend files to backend
-```
-cd frontend
-ng build --env=prod
-```
-### Run backend server
-```
-source venv/Scripts/activate
-python manage.py migrate rucken_todo 0001_initial
-python manage.py migrate
-python manage.py collectstatic --noinput
-python manage.py runserver 0.0.0.0:5000
-```
-## Push repository
-```
-git add .
-git commit -m "deploy"
-git push -u origin master
-```
+[travis-image]: https://travis-ci.org/site15/rucken-todo-django.svg?branch=master
+[travis-url]: https://travis-ci.org/site15/rucken-todo-django
