@@ -2,7 +2,7 @@
 echo "=> Performing database migrations..."
 python manage.py migrate
 cd frontend
-npm install
-ng build --prod --aot=false
-npm run app.add-version
+sudo npm install
+sudo ng build --prod --aot=false
+sudo npm run app.add-version
 python manage.py collectstatic --noinput
