@@ -3,12 +3,14 @@
 [![Build Status][travis-image]][travis-url]
 
 
-A simple todo application demonstrating the basic usage of [rucken](https://github.com/site15/rucken-todo-django) with Django REST framework.
+A simple todo application demonstrating the basic usage of [rucken](https://github.com/site15/rucken) with Django REST framework.
 
 
 ### Usage
-- Clone or fork this repository `git clone https://github.com/site15/rucken-todo-django.git`
+- Clone or fork this repository `git clone --recursive https://github.com/site15/rucken-todo-django.git`
 - Make sure you have [Python](https://www.python.org/downloads/) installed version 2.7.x
+- Make sure you have [node.js](https://nodejs.org/) installed version 6+
+- Make sure you have NPM installed version 3+
 - Open comand line in folder `rucken-todo-django`
 - Install virtual env for isolate libs used on project `pip install virtualenv` and init it `virtualenv venv`
 - Swicth to virtual env `venv\Scripts\activate` or on windows mingw32 `source venv/Scripts/activate`
