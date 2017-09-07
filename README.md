@@ -16,10 +16,15 @@ A simple todo application demonstrating the basic usage of [rucken](https://gith
 - run `python manage.py migrate rucken_todo 0001_initial` to init first migrations if run on windows
 - run `python manage.py migrate` to init all migrations
 - Go to frontend `cd frontend` and run `npm install` to install frontend dependencies
-- Build frontend, run `ng build --prod  --env=dev --aot=false` and `npm run app.add-version`
+- Build frontend, run `npm run build`
 - Collect static `python manage.py collectstatic --noinput`
 - Run server `python manage.py runserver 0.0.0.0:5000`
 - Open browser to [`http://localhost:5000`](http://localhost:5000)
+
+### Demo application [https://rucken-todo-django.herokuapp.com](https://rucken-todo-django.herokuapp.com)
+- test admin username: admin, password: 12345678
+- test user 1 username: user1, password: 12345678
+- test user 2 username: user2, password: 12345678
 
 ## License
 
