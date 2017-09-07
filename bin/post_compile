@@ -2,6 +2,8 @@
 echo "=> Performing submodule..."
 git init
 git submodule update --init --recursive
+git submodule
+ls
 echo "=> Performing frontend tools..."
 node --version
 echo "=> Performing database migrations..."
