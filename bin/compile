@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+echo "=> Performing submodule..."
+cd $(dirname $0)/..
+unset GIT_DIR
+git submodule update --init --recursive
