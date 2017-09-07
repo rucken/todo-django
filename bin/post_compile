@@ -5,10 +5,7 @@ echo "=> Performing database migrations..."
 python manage.py migrate rucken_todo 0001_initial
 python manage.py migrate
 echo "=> Build frontend..."
-cd frontend
-npm install
-ng build --prod --env=django --aot=false
-npm run app.add-version
-cd ..
+npm install --prefix ./frontend
+npm run build --prefix ./frontend
 echo "=> Copy frontend to backend..."
 python manage.py collectstatic --noinput

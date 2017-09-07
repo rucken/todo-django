@@ -4,6 +4,4 @@ apt-get install -y nodejs
 apt-get install npm -y
 node --version
 pip install -r requirements.txt
-cd frontend
-npm install
-cd ..
+npm install --prefix ./frontend
