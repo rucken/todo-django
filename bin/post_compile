@@ -1,9 +1,10 @@
 # !/usr/bin/env bash
 echo "=> Performing frontend tools..."
-sudo apt-get autoremove nodejs -y
-curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
-sudo apt-get install -y nodejs
-sudo apt-get install npm -y
+apt-get autoremove nodejs -y
+curl -sL https://deb.nodesource.com/setup_7.x -E bash -
+apt-get install -y nodejs
+apt-get install npm -y
+apt-get update
 node --version
 echo "=> Performing database migrations..."
 python manage.py migrate rucken_todo 0001_initial
