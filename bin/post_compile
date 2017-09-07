@@ -4,9 +4,9 @@ python manage.py migrate rucken_todo 0001_initial
 python manage.py migrate
 echo "=> Build frontend..."
 cd frontend
-sudo npm install
-sudo ng build --prod --aot=false
-sudo npm run app.add-version
+npm install
+ng build --prod --aot=false
+npm run app.add-version
 cd ..
 echo "=> Copy frontend to backend..."
 python manage.py collectstatic --noinput
