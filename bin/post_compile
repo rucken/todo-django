@@ -7,6 +7,7 @@ echo "=> Performing database migrations..."
 python manage.py migrate rucken_todo 0001_initial
 python manage.py migrate
 echo "=> Build frontend..."
+cp README.md ./frontend
 npm install --prefix ./frontend
 npm run build --prefix ./frontend
 echo "=> Copy frontend to backend..."
