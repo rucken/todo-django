@@ -1,6 +1,7 @@
-wget https://raw.githubusercontent.com/creationix/nvm/v0.31.0/nvm.sh -O ~/.nvm/nvm.sh
-source ~/.nvm/nvm.sh
-nvm install 6
+apt-get autoremove nodejs -y
+curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+apt-get install -y nodejs
+apt-get install npm -y
 node --version
 pip install -r requirements.txt
 cd frontend
