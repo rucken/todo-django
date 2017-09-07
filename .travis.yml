@@ -5,8 +5,6 @@ sudo: required
 install:
 - source scripts/install.sh
 script:
-- cd ..
 - source scripts/test.sh
 after_success:
-- cd ..
 - source scripts/deploy.sh
