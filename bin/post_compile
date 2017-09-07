@@ -1,5 +1,6 @@
 # !/usr/bin/env bash
 echo "=> Performing submodule..."
+git init
 git submodule update --init --recursive
 echo "=> Performing frontend tools..."
 node --version
