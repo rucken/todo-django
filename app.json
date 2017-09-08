@@ -1,8 +1,0 @@
-{
-  "name": "Simple todo application (backend: Django REST framework + plugins)",
-  "description": "Simple todo application with: auth, groups, permissions, projects, tasks, statuses (backend: Django REST framework + plugins)",
-  "image": "heroku/python",
-  "repository": "https://github.com/site15/rucken-todo-django-example",
-  "keywords": ["python", "django", "spa", "DREST" ],
-  "addons": [ "heroku-postgresql" ]
-}
