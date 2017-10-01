@@ -1,5 +1,7 @@
 ## rucken-todo-django
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/rucken/todo-django.svg)](https://greenkeeper.io/)
+
 [![Build Status][travis-image]][travis-url]
 
 
