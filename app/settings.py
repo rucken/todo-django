@@ -120,7 +120,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated'
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.SessionAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication'
     ),
@@ -212,7 +212,7 @@ STATIC_URL = '/static/'
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
-    os.path.join(PROJECT_ROOT, '..', 'frontend', 'dist'),
+    os.path.join(PROJECT_ROOT, '..', 'frontend', 'apps', 'todo','dist'),
 )
 # http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
 AWS_S3_HOST = 's3.eu-central-1.amazonaws.com'
