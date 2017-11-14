@@ -1,8 +1,6 @@
 # !/usr/bin/env bash
-apt-get autoremove nodejs -y
-curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
-apt-get install -y nodejs
-apt-get install npm -y
+ls
+ls frontend
 echo "=> Performing frontend tools..."
 node --version
 echo "=> Performing database migrations..."
