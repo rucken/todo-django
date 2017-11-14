@@ -1,5 +1,5 @@
 ## rucken-todo-django
-
+[![Requirements Status](https://requires.io/github/rucken/todo-django/requirements.svg?branch=master)](https://requires.io/github/rucken/todo-django/requirements/?branch=master)
 [![Build Status][travis-image]][travis-url]
 
 
