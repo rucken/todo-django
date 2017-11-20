@@ -36,7 +36,7 @@ djangorestframework-jwt==1.11.0
 dynamic-rest==1.6.7
 gunicorn==19.7.1
 html5lib==0.999999999
-httplib2==0.7.6
+httplib2==0.10.3
 incremental==17.5.0
 inflection==0.3.1
 iron-cache==0.3.2
