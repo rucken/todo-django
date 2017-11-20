@@ -1,4 +1,4 @@
-astroid==1.4.9
+astroid==1.5.3
 attrs==17.2.0
 Automat==0.6.0
 backports.functools-lru-cache==1.3
