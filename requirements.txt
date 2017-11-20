@@ -52,7 +52,7 @@ Pillow==4.3.0
 psycopg2==2.7.3.2
 -e git+https://bitbucket.org/zubar/pyga.git@1185a2202d9485e73b506e9f3a97363fe82eee5e#egg=pyga
 PyJWT==1.5.3
-pylint==1.6.4
+pylint==1.7.4
 pyquery==1.2.9
 python-dateutil==2.4.2
 python-mimeparse==0.1.4
