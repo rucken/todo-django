@@ -3,7 +3,7 @@
 [![Build Status][travis-image]][travis-url]
 
 
-A simple todo application demonstrating the basic usage of [rucken](https://github.com/rucken) Angular4+ with Django REST framework.
+A simple todo application demonstrating the basic usage of [rucken](https://github.com/rucken) Angular5+ with Django REST framework.
 
 
 ### Usage
