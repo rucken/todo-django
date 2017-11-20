@@ -30,7 +30,7 @@ django-taggit==0.22.1
 django-toolbelt==0.0.1
 -e git+https://github.com/EndyKaufman/django-twitter-api.git@26f68e88839be06b9dba4d8a844732c1d2ef4173#egg=django_twitter_api
 django-vkontakte-api==0.8.7
-djangorestframework==3.4.0
+djangorestframework==3.7.3
 djangorestframework-camel-case==0.2.0
 djangorestframework-jwt==1.8.0
 dynamic-rest==1.5.0
