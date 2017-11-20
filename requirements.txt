@@ -5,7 +5,7 @@ backports.functools-lru-cache==1.4
 beautifulsoup4==4.6.0
 boto==2.48.0
 bunch==1.0.1
-colorama==0.3.7
+colorama==0.3.9
 configparser==3.5.0
 constantly==15.1.0
 cssselect==0.9.1
