@@ -18,7 +18,7 @@ django-cors-headers==2.1.0
 django-crispy-forms==1.7.0
 django-filter==1.1.0
 django-htmlmin==0.10.0
-django-m2m-history==0.3.2
+django-m2m-history==0.3.6
 -e git+https://github.com/EndyKaufman/django-oauth-tokens.git@a214bf956c2ad796aefe48348963982375eb2c31#egg=django_oauth_tokens
 django-picklefield==0.3.1
 django-postgrespool==0.3.0
