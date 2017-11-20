@@ -10,7 +10,7 @@ configparser==3.5.0
 constantly==15.1.0
 cssselect==1.0.1
 deepdiff==3.3.0
-dj-database-url==0.4.1
+dj-database-url==0.4.2
 dj-static==0.0.6
 Django==1.10
 django-annoying==0.8.2
