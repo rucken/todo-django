@@ -5,9 +5,9 @@ from dynamic_rest.serializers import (
     DynamicModelSerializer
 )
 
-from ..serializers.ShortTodoProjectSerializer import ShortTodoProjectSerializer
-from ..serializers.ContentTypeSerializer import ContentTypeSerializer
-from ..serializers.UserSerializer import UserSerializer
+from .ShortTodoProjectSerializer import ShortTodoProjectSerializer
+from .ContentTypeSerializer import ContentTypeSerializer
+from .UserSerializer import UserSerializer
 from ..models import TodoChange
 
 

@@ -1,9 +1,10 @@
 from __future__ import unicode_literals
+
 from django.db import models
 from django.db.models import CASCADE, PROTECT
 
-from TodoProject import TodoProject
-from TodoStatus import TodoStatus
+from .TodoProject import TodoProject
+from .TodoStatus import TodoStatus
 
 
 class TodoTask(models.Model):

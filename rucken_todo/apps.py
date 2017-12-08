@@ -6,4 +6,4 @@ class RuckenTodoConfig(AppConfig):
     name = 'rucken_todo'
 
     def ready(self):
-        import signals
+        from . import signals

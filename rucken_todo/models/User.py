@@ -1,8 +1,8 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+import django.contrib.auth.models
 
 
-class User(AbstractUser):
+class User(django.contrib.auth.models.AbstractUser):
     date_of_birth = models.DateTimeField(null=True, blank=True)
 
     class Meta:

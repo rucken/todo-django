@@ -5,7 +5,7 @@ from dynamic_rest.serializers import (
     DynamicRelationField
 )
 
-from GroupSerializer import GroupSerializer
+from .GroupSerializer import GroupSerializer
 from ..models import User
 
 
@@ -24,7 +24,7 @@ class UserSerializer(DynamicModelSerializer):
             'last_login', 'date_joined', 'groups', 'date_of_birth')
         read_only_fields = (
             'last_login', 'date_joined',
-            'is_superuser', 'is_staff', 'is_active'# hard readonly
+            'is_superuser', 'is_staff', 'is_active'  # hard readonly
         )
 
     def create(self, validated_data):

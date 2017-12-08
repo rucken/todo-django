@@ -84,4 +84,3 @@ class BaseViewSet(DynamicModelViewSet):
     def to_response(self, obj):
         serializer = self.serializer_class(obj)
         return Response(serializer.data)
-

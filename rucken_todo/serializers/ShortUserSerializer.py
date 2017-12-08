@@ -4,8 +4,8 @@ from dynamic_rest.serializers import (
     DynamicRelationField
 )
 
-from ShortGroupSerializer import ShortGroupSerializer
-from UserSerializer import UserSerializer
+from .ShortGroupSerializer import ShortGroupSerializer
+from .UserSerializer import UserSerializer
 from ..models import User
 
 

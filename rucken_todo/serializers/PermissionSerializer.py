@@ -6,7 +6,7 @@ from dynamic_rest.serializers import (
 )
 from django.contrib.auth.models import Permission
 
-from ContentTypeSerializer import ContentTypeSerializer
+from .ContentTypeSerializer import ContentTypeSerializer
 
 
 class PermissionSerializer(DynamicModelSerializer):

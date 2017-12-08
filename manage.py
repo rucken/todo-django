@@ -28,9 +28,11 @@ def read_env():
                 val = re.sub(r'\\(.)', r'\1', m3.group(1))
             os.environ.setdefault(key, val)
 
+
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "app.settings")
 
     from django.core.management import execute_from_command_line
+
     read_env()
     execute_from_command_line(sys.argv)

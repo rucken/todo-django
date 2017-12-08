@@ -4,7 +4,6 @@ from ..serializers import TodoChangeSerializer
 from ..models.TodoProject import TodoProject
 from ..models.TodoTask import TodoTask
 from ..models.TodoStatus import TodoStatus
-# from ..models.User import User
 from . import BaseViewSet
 from django.db.models import Q
 
@@ -26,9 +25,9 @@ class TodoChangesViewSet(BaseViewSet):
             qs = qs.filter(
                 (
                     # Q(content_type__model=User._meta.model_name) |
-                    Q(content_type__model=TodoProject._meta.model_name) |
-                    Q(content_type__model=TodoTask._meta.model_name) |
-                    Q(content_type__model=TodoStatus._meta.model_name)
+                        Q(content_type__model=TodoProject._meta.model_name) |
+                        Q(content_type__model=TodoTask._meta.model_name) |
+                        Q(content_type__model=TodoStatus._meta.model_name)
                 ) &
                 (
                     Q(project__users__id=self.request.user.pk)

@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 from django.db import models
 
-from User import User
+from .User import User
 
 
 class TodoProject(models.Model):

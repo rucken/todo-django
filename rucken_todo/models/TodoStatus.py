@@ -1,8 +1,9 @@
 from __future__ import unicode_literals
+
 from django.db import models
 from django.db.models import CASCADE
 
-from TodoProject import TodoProject
+from .TodoProject import TodoProject
 
 
 class TodoStatus(models.Model):

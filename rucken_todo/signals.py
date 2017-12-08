@@ -3,15 +3,15 @@ from django.db.models.signals import pre_save, post_save, post_delete
 from django.dispatch import receiver
 import json
 from deepdiff import DeepDiff
-from models.TodoProject import TodoProject
-from models.TodoChange import TodoChange
-from models.TodoTask import TodoTask
-from models.TodoStatus import TodoStatus
-from models.User import User
-from serializers.ShortTodoTaskSerializer import ShortTodoTaskSerializer
-from serializers.ShortTodoProjectSerializer import ShortTodoProjectSerializer
-from serializers.ShortTodoStatusSerializer import ShortTodoStatusSerializer
-from serializers.ShortUserSerializer import ShortUserSerializer
+from .models.TodoProject import TodoProject
+from .models.TodoChange import TodoChange
+from .models.TodoTask import TodoTask
+from .models.TodoStatus import TodoStatus
+from .models.User import User
+from .serializers.ShortTodoTaskSerializer import ShortTodoTaskSerializer
+from .serializers.ShortTodoProjectSerializer import ShortTodoProjectSerializer
+from .serializers.ShortTodoStatusSerializer import ShortTodoStatusSerializer
+from .serializers.ShortUserSerializer import ShortUserSerializer
 
 
 def get_data_and_request(obj):

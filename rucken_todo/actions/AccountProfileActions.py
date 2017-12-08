@@ -1,5 +1,4 @@
 from djangorestframework_camel_case.render import CamelCaseJSONRenderer
-from rest_framework.exceptions import ValidationError
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import permissions

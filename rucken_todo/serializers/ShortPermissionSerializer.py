@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 
 from django.contrib.auth.models import Permission
 
-from PermissionSerializer import PermissionSerializer
+from .PermissionSerializer import PermissionSerializer
 
 
 class ShortPermissionSerializer(PermissionSerializer):

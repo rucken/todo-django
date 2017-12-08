@@ -5,7 +5,7 @@ from dynamic_rest.serializers import (
     DynamicRelationField
 )
 from django.contrib.auth.models import Group
-from PermissionSerializer import PermissionSerializer
+from .PermissionSerializer import PermissionSerializer
 
 
 class GroupSerializer(DynamicModelSerializer):

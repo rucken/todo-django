@@ -6,8 +6,8 @@ from dynamic_rest.serializers import (
 )
 
 from ..models import TodoTask
-from ..serializers.ShortTodoStatusSerializer import ShortTodoStatusSerializer
-from ..serializers.ShortTodoProjectSerializer import ShortTodoProjectSerializer
+from .ShortTodoStatusSerializer import ShortTodoStatusSerializer
+from .ShortTodoProjectSerializer import ShortTodoProjectSerializer
 
 
 class TodoTaskSerializer(DynamicModelSerializer):

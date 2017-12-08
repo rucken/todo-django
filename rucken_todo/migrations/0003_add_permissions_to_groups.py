@@ -17,11 +17,12 @@ def add_permissions_for_pages_and_frames(apps, schema_editor):
 
     for key in keys:
         for content_type in content_types:
-			try:
-				permission = PermissionModel.objects.get(codename='%s_%s' % (key, content_type))
-				group.permissions.add(permission)
-			except:
-				print '%s_%s' % (key, content_type)
+            try:
+                permission = PermissionModel.objects.get(codename='%s_%s' % (key, content_type))
+                group.permissions.add(permission)
+            except:
+                print
+                '%s_%s' % (key, content_type)
     keys = ['read']
     content_types = ['themespage', 'accountpage', 'profileframe', 'projectspage']
 
@@ -29,11 +30,12 @@ def add_permissions_for_pages_and_frames(apps, schema_editor):
 
     for key in keys:
         for content_type in content_types:
-			try:
-				permission = PermissionModel.objects.get(codename='%s_%s' % (key, content_type))
-				group.permissions.add(permission)
-			except:
-				print '%s_%s' % (key, content_type)
+            try:
+                permission = PermissionModel.objects.get(codename='%s_%s' % (key, content_type))
+                group.permissions.add(permission)
+            except:
+                print
+                '%s_%s' % (key, content_type)
 
 
 def add_permissions_for_entities(apps, schema_editor):
@@ -47,11 +49,12 @@ def add_permissions_for_entities(apps, schema_editor):
     group = GroupModel.objects.get(name='admin')
     for key in keys:
         for content_type in content_types:
-			try:
-				permission = PermissionModel.objects.get(codename='%s_%s' % (key, content_type))
-				group.permissions.add(permission)
-			except:
-				print '%s_%s' % (key, content_type)
+            try:
+                permission = PermissionModel.objects.get(codename='%s_%s' % (key, content_type))
+                group.permissions.add(permission)
+            except:
+                print
+                '%s_%s' % (key, content_type)
 
     keys = ['read', 'add', 'change', 'delete']
     content_types = ['todoproject', 'todotask', 'todostatus']
@@ -59,11 +62,12 @@ def add_permissions_for_entities(apps, schema_editor):
     group = GroupModel.objects.get(name='user')
     for key in keys:
         for content_type in content_types:
-			try:
-				permission = PermissionModel.objects.get(codename='%s_%s' % (key, content_type))
-				group.permissions.add(permission)
-			except:
-				print '%s_%s' % (key, content_type)
+            try:
+                permission = PermissionModel.objects.get(codename='%s_%s' % (key, content_type))
+                group.permissions.add(permission)
+            except:
+                print
+                '%s_%s' % (key, content_type)
 
     keys = ['read', 'add']
     content_types = ['user']
@@ -71,11 +75,12 @@ def add_permissions_for_entities(apps, schema_editor):
     group = GroupModel.objects.get(name='user')
     for key in keys:
         for content_type in content_types:
-			try:
-				permission = PermissionModel.objects.get(codename='%s_%s' % (key, content_type))
-				group.permissions.add(permission)
-			except:
-				print '%s_%s' % (key, content_type)
+            try:
+                permission = PermissionModel.objects.get(codename='%s_%s' % (key, content_type))
+                group.permissions.add(permission)
+            except:
+                print
+                '%s_%s' % (key, content_type)
 
     keys = ['read']
     content_types = ['todochange']
@@ -83,11 +88,12 @@ def add_permissions_for_entities(apps, schema_editor):
     group = GroupModel.objects.get(name='user')
     for key in keys:
         for content_type in content_types:
-			try:
-				permission = PermissionModel.objects.get(codename='%s_%s' % (key, content_type))
-				group.permissions.add(permission)
-			except:
-				print '%s_%s' % (key, content_type)
+            try:
+                permission = PermissionModel.objects.get(codename='%s_%s' % (key, content_type))
+                group.permissions.add(permission)
+            except:
+                print
+                '%s_%s' % (key, content_type)
 
 
 class Migration(migrations.Migration):

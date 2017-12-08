@@ -2,16 +2,16 @@ from __future__ import unicode_literals
 
 from dynamic_rest.routers import DynamicRouter
 
-from BaseViewSet import *
-from BaseWithUsersViewSet import *
-from ContentTypesViewSet import *
-from GroupsViewSet import *
-from PermissionsViewSet import *
-from UsersViewSet import *
-from TodoProjectsViewSet import *
-from TodoTasksViewSet import *
-from TodoStatusesViewSet import *
-from TodoChangesViewSet import *
+from .BaseViewSet import *
+from .BaseWithUsersViewSet import *
+from .ContentTypesViewSet import *
+from .GroupsViewSet import *
+from .PermissionsViewSet import *
+from .UsersViewSet import *
+from .TodoProjectsViewSet import *
+from .TodoTasksViewSet import *
+from .TodoStatusesViewSet import *
+from .TodoChangesViewSet import *
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = DynamicRouter()
