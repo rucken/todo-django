@@ -21,9 +21,9 @@ class BaseWithUsersViewSet(BaseViewSet):
                     user.username = data['username']
                     user.save()
                 else:
-                    user = ShortUserSerializer.Meta.model.objects.filter(
+                    user = list(ShortUserSerializer.Meta.model.objects.filter(
                         Q(email__iexact=data['email'])
-                    ).first()
+                    )).first()
                     if user is None or user.id is None:
                         serializer = ShortUserSerializer(user)
                         data['is_superuser'] = False
@@ -46,18 +46,18 @@ class BaseWithUsersViewSet(BaseViewSet):
     def create(self, request, *args, **kwargs):
         if 'users' not in request.data:
             request.data['users'] = []
-        request.data['users'] = filter(lambda x: x is not None,
-                                       map(BaseWithUsersViewSet.create_user, request.data['users']))
+        request.data['users'] = list(filter(lambda x: x is not None,
+                                       map(BaseWithUsersViewSet.create_user, request.data['users'])))
         request.data['users'].append(request.user.id)
         return super(BaseWithUsersViewSet, self).create(request, *args, **kwargs)
 
     def update(self, request, *args, **kwargs):
         if 'users' not in request.data:
             request.data['users'] = []
-        items = self.model.objects.filter(users__id=request.user.id, id=request.data['id'])
+        items = list(self.model.objects.filter(users__id=request.user.id, id=request.data['id']))
         if request.user.id not in request.data['users'] and len(list(items)) == 0:
             return Response({'errors': 'Not access'}, status=status.HTTP_403_FORBIDDEN)
-        request.data['users'] = filter(lambda x: x is not None, map(self.create_user, request.data['users']))
+        request.data['users'] = list(filter(lambda x: x is not None, map(self.create_user, request.data['users'])))
         request.data['users'].append(request.user.id)
         return super(BaseWithUsersViewSet, self).update(request, *args, **kwargs)
 

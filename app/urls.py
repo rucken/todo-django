@@ -9,7 +9,9 @@ from django.contrib import admin
 
 from rucken_todo.actions import AccountProfileUpdateAction
 from rucken_todo.viewsets import router
+from rest_framework_swagger.views import get_swagger_view
 
+schema_view = get_swagger_view(title='Rucken: Todo')
 admin.autodiscover()
 
 urlpatterns = [
@@ -17,6 +19,7 @@ urlpatterns = [
     url(r'^api/account/info', verify_jwt_token),
     url(r'^api/account/update', AccountProfileUpdateAction.as_view()),
     url(r'^api/', include(router.urls)),
+    url(r'^swagger', schema_view)
     # url(r'^admin/', include(admin.site.urls)),
     # url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

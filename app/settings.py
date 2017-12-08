@@ -41,7 +41,8 @@ INSTALLED_APPS = (
     'dynamic_rest',
     'storages',
     'corsheaders',
-    'rucken_todo'
+    'rucken_todo',
+    'rest_framework_swagger'
 )
 
 AUTH_USER_MODEL = 'rucken_todo.User'
@@ -49,6 +50,7 @@ AUTH_USER_MODEL = 'rucken_todo.User'
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'corsheaders.middleware.CorsPostCsrfMiddleware',
@@ -59,6 +61,15 @@ MIDDLEWARE_CLASSES = (
     'app.helpers.disable_csrf.DisableCSRF',
     'spa.middleware.SPAMiddleware',
 )
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'basic': {
+            'type': 'basic'
+        }
+    },
+    'SHOW_REQUEST_HEADERS': True
+}
 
 CORS_ORIGIN_ALLOW_ALL = True
 
@@ -125,6 +136,7 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_RENDERER_CLASSES': (
         'djangorestframework_camel_case.render.CamelCaseJSONRenderer',  # Any other renders
+        'dynamic_rest.renderers.DynamicBrowsableAPIRenderer',
     ),
     'DEFAULT_PARSER_CLASSES': (
         'djangorestframework_camel_case.parser.CamelCaseJSONParser',  # Any other parsers

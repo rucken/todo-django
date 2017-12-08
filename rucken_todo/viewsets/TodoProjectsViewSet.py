@@ -16,9 +16,9 @@ class TodoProjectsViewSet(BaseWithUsersViewSet):
                 if data['id'] is not None:
                     status = TodoStatusSerializer.Meta.model.objects.get(pk=data['id'])
                 else:
-                    status = TodoStatusSerializer.Meta.model.objects.filter(
+                    status = list(TodoStatusSerializer.Meta.model.objects.filter(
                         Q(name__iexact=data['name'], project=project)
-                    ).first()
+                    )).first()
                     if status is None or status.id is None:
                         serializer = TodoStatusSerializer(status)
                         data['project'] = project
