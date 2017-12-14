@@ -51,7 +51,8 @@ class Migration(migrations.Migration):
                     ('read_groupsframe', 'Can read groups frame'),
                     ('read_usersframe', 'Can read users frame'),
                     ('read_projectspage', 'Can read projects page'),
-                    ('read_projectsframe', 'Can read projects frame')
+                    ('read_projectsframe', 'Can read projects frame'),
+                    ('change_profile', 'Can change profile')
                 ),
             },
             managers=[

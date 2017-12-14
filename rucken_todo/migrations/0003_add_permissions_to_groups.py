@@ -20,6 +20,7 @@ def add_permissions_for_pages_and_frames(apps, schema_editor):
             try:
                 permission = PermissionModel.objects.get(codename='%s_%s' % (key, content_type))
                 group.permissions.add(permission)
+                group.save()
             except:
                 print
                 '%s_%s' % (key, content_type)
@@ -33,6 +34,7 @@ def add_permissions_for_pages_and_frames(apps, schema_editor):
             try:
                 permission = PermissionModel.objects.get(codename='%s_%s' % (key, content_type))
                 group.permissions.add(permission)
+                group.save()
             except:
                 print
                 '%s_%s' % (key, content_type)
@@ -84,6 +86,29 @@ def add_permissions_for_entities(apps, schema_editor):
 
     keys = ['read']
     content_types = ['todochange']
+
+    group = GroupModel.objects.get(name='user')
+    for key in keys:
+        for content_type in content_types:
+            try:
+                permission = PermissionModel.objects.get(codename='%s_%s' % (key, content_type))
+                group.permissions.add(permission)
+            except:
+                print
+                '%s_%s' % (key, content_type)
+
+    keys = ['change']
+    content_types = ['profile']
+
+    group = GroupModel.objects.get(name='admin')
+    for key in keys:
+        for content_type in content_types:
+            try:
+                permission = PermissionModel.objects.get(codename='%s_%s' % (key, content_type))
+                group.permissions.add(permission)
+            except:
+                print
+                '%s_%s' % (key, content_type)
 
     group = GroupModel.objects.get(name='user')
     for key in keys:

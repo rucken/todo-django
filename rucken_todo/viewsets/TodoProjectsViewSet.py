@@ -1,10 +1,12 @@
 from __future__ import unicode_literals
 
-from ..serializers import TodoStatusSerializer
-from ..serializers import TodoProjectSerializer
-from . import BaseWithUsersViewSet
-from django.db.models import Q
 from numbers import Number
+
+from django.db.models import Q
+
+from . import BaseWithUsersViewSet
+from ..serializers import TodoProjectSerializer
+from ..serializers import TodoStatusSerializer
 
 
 class TodoProjectsViewSet(BaseWithUsersViewSet):
@@ -16,9 +18,13 @@ class TodoProjectsViewSet(BaseWithUsersViewSet):
                 if data['id'] is not None:
                     status = TodoStatusSerializer.Meta.model.objects.get(pk=data['id'])
                 else:
-                    status = list(TodoStatusSerializer.Meta.model.objects.filter(
+                    statuses = list(TodoStatusSerializer.Meta.model.objects.filter(
                         Q(name__iexact=data['name'], project=project)
-                    )).first()
+                    ))
+                    if len(statuses):
+                        status = statuses[0]
+                    else:
+                        status = None
                     if status is None or status.id is None:
                         serializer = TodoStatusSerializer(status)
                         data['project'] = project

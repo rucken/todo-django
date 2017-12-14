@@ -21,9 +21,13 @@ class BaseWithUsersViewSet(BaseViewSet):
                     user.username = data['username']
                     user.save()
                 else:
-                    user = list(ShortUserSerializer.Meta.model.objects.filter(
+                    users = list(ShortUserSerializer.Meta.model.objects.filter(
                         Q(email__iexact=data['email'])
-                    )).first()
+                    ))
+                    if len(users):
+                        user = users[0]
+                    else:
+                        user = None
                     if user is None or user.id is None:
                         serializer = ShortUserSerializer(user)
                         data['is_superuser'] = False
@@ -47,7 +51,7 @@ class BaseWithUsersViewSet(BaseViewSet):
         if 'users' not in request.data:
             request.data['users'] = []
         request.data['users'] = list(filter(lambda x: x is not None,
-                                       map(BaseWithUsersViewSet.create_user, request.data['users'])))
+                                            map(BaseWithUsersViewSet.create_user, request.data['users'])))
         request.data['users'].append(request.user.id)
         return super(BaseWithUsersViewSet, self).create(request, *args, **kwargs)
 

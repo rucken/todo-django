@@ -20,4 +20,5 @@ class User(django.contrib.auth.models.AbstractUser):
             ("read_usersframe", "Can read users frame"),
             ("read_projectspage", "Can read projects page"),
             ("read_projectsframe", "Can read projects frame"),
+            ("change_profile", "Can change profile"),
         )

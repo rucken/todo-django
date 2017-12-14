@@ -10,6 +10,13 @@ from ..models import User
 
 
 class AccountSerializer(UserSerializer):
+    """
+    Serializer class used to update user profile
+    """
+
+    def __init__(self, *args, **kwargs):
+        super(UserSerializer, self).__init__(*args, **kwargs)
+
     groups = DynamicRelationField(ShortGroupSerializer, many=True, embed=True)
 
     class Meta:
