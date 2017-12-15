@@ -44,29 +44,32 @@ class BaseViewSet(DynamicModelViewSet):
     pagination_class = DynamicPageNumberPagination
     renderer_classes = (CamelCaseJSONRenderer, DynamicBrowsableAPIRenderer)
 
-    def has_model_permissions(self, entity, model, perms, app):
+    def has_model_permissions(self, entity, model, perms):
+        model_app = entity._meta.app_label
+        model_module_app = entity.__module__.split('.')[0]
         for p in perms:
-            if entity.has_perm("%s.%s_%s" % (app.lower(), p.lower(), model.__name__.lower())):
+            if entity.has_perm("%s.%s_%s" % (model_app, p.lower(), model.__name__.lower())) \
+                    or entity.has_perm("%s.%s_%s" % (model_module_app, p.lower(), model.__name__.lower())):
                 return True
         return False
 
     def create(self, request, *args, **kwargs):
-        if not self.has_model_permissions(request.user, self.model, ['add', 'manage'], self.model._meta.app_label):
+        if not self.has_model_permissions(request.user, self.model, ['add', 'manage']):
             return Response({'errors': 'Not allow'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
         return super(BaseViewSet, self).create(request, *args, **kwargs)
 
     def update(self, request, *args, **kwargs):
-        if not self.has_model_permissions(request.user, self.model, ['change', 'manage'], self.model._meta.app_label):
+        if not self.has_model_permissions(request.user, self.model, ['change', 'manage']):
             return Response({'errors': 'Not allow'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
         return super(BaseViewSet, self).update(request, *args, **kwargs)
 
     def destroy(self, request, *args, **kwargs):
-        if not self.has_model_permissions(request.user, self.model, ['delete', 'manage'], self.model._meta.app_label):
+        if not self.has_model_permissions(request.user, self.model, ['delete', 'manage']):
             return Response({'errors': 'Not allow'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
         return super(BaseViewSet, self).destroy(request, *args, **kwargs)
 
     def retrieve(self, request, *args, **kwargs):
-        if not self.has_model_permissions(request.user, self.model, ['read', 'manage'], self.model._meta.app_label):
+        if not self.has_model_permissions(request.user, self.model, ['read', 'manage']):
             return Response({'errors': 'Not allow'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
         return super(BaseViewSet, self).retrieve(request, *args, **kwargs)
 
@@ -77,7 +80,7 @@ class BaseViewSet(DynamicModelViewSet):
             request.query_params.add('per_page', 10)
         if not request.query_params.get('sort[]'):
             request.query_params.add('sort[]', ['-id'])
-        if not self.has_model_permissions(request.user, self.model, ['read', 'manage'], self.model._meta.app_label):
+        if not self.has_model_permissions(request.user, self.model, ['read', 'manage']):
             return Response({'errors': 'Not allow'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
         return super(BaseViewSet, self).list(request, *args, **kwargs)
 

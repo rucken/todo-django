@@ -26,7 +26,7 @@ class UsersViewSet(BaseViewSet):
         return super(UsersViewSet, self).list(request, *args, **kwargs)
 
     def update(self, request, *args, **kwargs):
-        if not self.has_model_permissions(request.user, self.model, ['change', 'manage'], self.model._meta.app_label):
+        if not self.has_model_permissions(request.user, self.model, ['change', 'manage']):
             return Response({'errors': 'Not allow'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
         user = UserSerializer.Meta.model.objects.get(pk=request.data['id'])
         serializer = UserSerializer(user)
