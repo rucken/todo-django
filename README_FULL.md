@@ -11,7 +11,7 @@ https://code.visualstudio.com/
 
 ## Install external
 
-### Install Python 2.7
+### Install Python 3
 http://docs.python-guide.org/en/latest/starting/install/win/
 ### Install Heroku CLI
 https://devcenter.heroku.com/articles/heroku-command-line
@@ -58,22 +58,20 @@ https://nodejs.org/en/
 ## Install
 ```
 npm install -g npm
-npm install -g angular-cli
-npm install -g typings
 cd frontend
 npm install
 ```
 ## Run standalone frontend application with watch
 ```
 cd frontend
-ng serve --env=dev
+npm run start
 ```
 ## Run frontend application from backend 
 
 ### Build and copy frontend files to backend
 ```
 cd frontend
-ng build --env=prod
+npm run build
 ```
 ### Run backend server
 ```

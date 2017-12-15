@@ -8,16 +8,16 @@ A simple todo application demonstrating the basic usage of [rucken](https://gith
 
 ### Usage
 - Clone or fork this repository `git clone --recursive https://github.com/rucken/todo-django.git`
-- Make sure you have [Python](https://www.python.org/downloads/) installed version 2.7.x
+- Make sure you have [Python](https://www.python.org/downloads/) installed version 3.x
 - Make sure you have [node.js](https://nodejs.org/) installed version 6+
 - Make sure you have NPM installed version 3+
-- Open comand line in folder `todo-django`
+- Open command line in folder `todo-django`
 - Install virtual env for isolate libs used on project `pip install virtualenv` and init it `virtualenv venv`
-- Swicth to virtual env `venv\Scripts\activate` or on windows mingw32 `source venv/Scripts/activate`
+- Switch to virtual env `venv\Scripts\activate` or on windows mingw32 `source venv/Scripts/activate`
 - run `pip install -r requirements.txt` to install project dependencies
 - run `python manage.py migrate rucken_todo 0001_initial` to init first migrations
 - run `python manage.py migrate` to init all migrations
-- run `python -c "import shutil; shutil.copy2('_README.md', 'frontend/README.md');"` to copy README.md to frontend
+- run `python -c "import shutil; shutil.copy2('README.md', 'frontend/README.md');"` to copy README.md to frontend
 - Go to frontend `cd frontend` and run `npm install` to install frontend dependencies
 - Build frontend, run `npm run build`
 - Collect static `python manage.py collectstatic --noinput`
