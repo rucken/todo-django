@@ -32,3 +32,4 @@ class UsersViewSet(BaseViewSet):
         serializer = UserSerializer(user)
         serializer.update(user, request.data)
         return Response(serializer.data)
+

@@ -5,14 +5,16 @@ from django.conf.urls import include, url
 
 from rest_framework_jwt.views import obtain_jwt_token, verify_jwt_token
 
-from django.contrib import admin
-
 from rucken_todo.actions import AccountProfileUpdateAction
 from rucken_todo.viewsets import router
-from rest_framework_swagger.views import get_swagger_view
+from rucken_todo.swagger import get_swagger_view
 
-schema_view = get_swagger_view(title='Rucken: Todo')
-admin.autodiscover()
+schema_view = get_swagger_view(title='Rucken: Todo', url='/api/', patterns=[
+    url(r'^account/login', obtain_jwt_token),
+    url(r'^account/info', verify_jwt_token),
+    url(r'^account/update', AccountProfileUpdateAction.as_view()),
+    url(r'^', include(router.urls))
+])
 
 urlpatterns = [
     url(r'^api/account/login', obtain_jwt_token),
@@ -20,12 +22,9 @@ urlpatterns = [
     url(r'^api/account/update', AccountProfileUpdateAction.as_view()),
     url(r'^api/', include(router.urls)),
     url(r'^swagger', schema_view)
-    # url(r'^admin/', include(admin.site.urls)),
-    # url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
 
 if settings.DEBUG:
-    urlpatterns += static('/upload/details/images/', document_root='upload/details/images/')
     urlpatterns += static('/css/', document_root='app/staticfiles/css/')
     urlpatterns += static('/img/', document_root='app/staticfiles/img/')
     urlpatterns += static('/js/', document_root='app/staticfiles/js/')

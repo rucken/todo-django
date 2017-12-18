@@ -13,6 +13,7 @@ class AccountProfileUpdateAction(APIView):
     permission_classes = (CanChangeProfile,)
     renderer_classes = (CamelCaseJSONRenderer,)
     serializer_class = AccountSerializer
+    lookup_fields = AccountSerializer.Meta.fields
 
     def post(self, request):
         user = User.objects.get(pk=request.user.pk)

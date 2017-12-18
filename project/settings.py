@@ -42,7 +42,8 @@ INSTALLED_APPS = (
     'storages',
     'corsheaders',
     'rucken_todo',
-    'rest_framework_swagger'
+    'rest_framework_swagger',
+    'django_filters'
 )
 
 AUTH_USER_MODEL = 'rucken_todo.User'
@@ -58,14 +59,18 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'app.helpers.disable_csrf.DisableCSRF',
+    'rucken_todo.helpers.disable_csrf.DisableCSRF',
     'spa.middleware.SPAMiddleware',
 )
 
+#LOGIN_URL = 'api/account/login'
+#LOGOUT_URL = 'api/account/logout'
+
 SWAGGER_SETTINGS = {
+    'USE_SESSION_AUTH': False,
     'SECURITY_DEFINITIONS': {
         'basic': {
-            'type': 'basic'
+            'type': 'apiKey'
         }
     },
     'SHOW_REQUEST_HEADERS': True
@@ -73,12 +78,12 @@ SWAGGER_SETTINGS = {
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-ROOT_URLCONF = 'app.urls'
+ROOT_URLCONF = 'project.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'rucken_todo', 'swagger', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'debug': True,
@@ -92,7 +97,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'app.wsgi.application'
+WSGI_APPLICATION = 'project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
@@ -135,11 +140,14 @@ REST_FRAMEWORK = {
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication'
     ),
     'DEFAULT_RENDERER_CLASSES': (
-        'djangorestframework_camel_case.render.CamelCaseJSONRenderer',  # Any other renders
-        'dynamic_rest.renderers.DynamicBrowsableAPIRenderer',
+        'djangorestframework_camel_case.render.CamelCaseJSONRenderer',
+        'rest_framework.renderers.JSONRenderer'
     ),
     'DEFAULT_PARSER_CLASSES': (
-        'djangorestframework_camel_case.parser.CamelCaseJSONParser',  # Any other parsers
+        'djangorestframework_camel_case.parser.CamelCaseJSONParser',
+    ),
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
     )
 }
 
@@ -192,7 +200,7 @@ DYNAMIC_REST = {
 
 JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(days=7),
-    'JWT_RESPONSE_PAYLOAD_HANDLER': 'app.helpers.jwt_utils.jwt_response_payload_handler'
+    'JWT_RESPONSE_PAYLOAD_HANDLER': 'rucken_todo.helpers.jwt_utils.jwt_response_payload_handler'
 }
 
 # Internationalization
@@ -223,6 +231,7 @@ STATIC_URL = '/static/'
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
+    os.path.join(BASE_DIR, 'rucken_todo', 'swagger', 'static'),
     os.path.join(PROJECT_ROOT, '..', 'frontend', 'apps', 'todo', 'dist'),
 )
 
