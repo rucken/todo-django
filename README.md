@@ -18,7 +18,7 @@ A simple todo application demonstrating the basic usage of [rucken](https://gith
 - run `pip install -r requirements.txt` to install project dependencies
 - run `python manage.py migrate rucken_todo 0001_initial` to init first migrations
 - run `python manage.py migrate` to init all migrations
-- run `python -c "import shutil; shutil.copy2('README.md', 'frontend/README.md');"` to copy README.md to frontend
+- run `python -c "import shutil; shutil.copy2('_README.md', 'frontend/README.md');"` to copy README.md to frontend
 - Go to frontend `cd frontend` and run `npm install` to install frontend dependencies
 - Build frontend, run `npm run build`
 - Collect static `python manage.py collectstatic --noinput`
