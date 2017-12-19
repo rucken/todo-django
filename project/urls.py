@@ -6,20 +6,20 @@ from django.conf.urls import include, url
 from rest_framework_jwt.views import obtain_jwt_token, verify_jwt_token
 
 from rucken_todo.actions import AccountProfileUpdateAction
-from rucken_todo.viewsets import router
+from rucken_todo.viewsets import router, swagger_urls
 from rucken_todo.swagger import get_swagger_view
 
 schema_view = get_swagger_view(title='Rucken: Todo', url='/api/', patterns=[
-    url(r'^account/login', obtain_jwt_token),
-    url(r'^account/info', verify_jwt_token),
-    url(r'^account/update', AccountProfileUpdateAction.as_view()),
-    url(r'^', include(router.urls))
-])
-
+                                                                               url(r'^account/login', obtain_jwt_token),
+                                                                               url(r'^account/info', verify_jwt_token),
+                                                                               url(r'^account/update',
+                                                                                   AccountProfileUpdateAction.as_view(
+                                                                                       {'post': 'post'})),
+                                                                           ] + swagger_urls)
 urlpatterns = [
     url(r'^api/account/login', obtain_jwt_token),
     url(r'^api/account/info', verify_jwt_token),
-    url(r'^api/account/update', AccountProfileUpdateAction.as_view()),
+    url(r'^api/account/update', AccountProfileUpdateAction.as_view({'post': 'post'})),
     url(r'^api/', include(router.urls)),
     url(r'^swagger', schema_view)
 ]

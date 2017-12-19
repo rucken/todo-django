@@ -28,6 +28,7 @@ class UserSerializer(DynamicModelSerializer):
         )
 
     def create(self, validated_data):
+        validated_data = validated_data.copy()
         for field in self.Meta.read_only_fields:
             validated_data.pop(field, None)
         password = validated_data.pop('password', None)
@@ -41,6 +42,7 @@ class UserSerializer(DynamicModelSerializer):
         return instance
 
     def update(self, instance, validated_data):
+        validated_data = validated_data.copy()
         for field in self.Meta.read_only_fields:
             validated_data.pop(field, None)
         for attr, value in validated_data.items():

@@ -200,7 +200,7 @@ DYNAMIC_REST = {
 
 JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(days=7),
-    'JWT_RESPONSE_PAYLOAD_HANDLER': 'rucken_todo.helpers.jwt_utils.jwt_response_payload_handler'
+    'JWT_RESPONSE_PAYLOAD_HANDLER': 'rucken_todo.helpers.jwt_utils.jwt_response_payload_handler',
 }
 
 # Internationalization

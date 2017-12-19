@@ -23,4 +23,6 @@ router.register_resource(TodoProjectsViewSet)
 router.register_resource(TodoTasksViewSet)
 router.register_resource(TodoStatusesViewSet)
 router.register_resource(TodoChangesViewSet)
-#eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsInVzZXJfaWQiOjEsImV4cCI6MTUxNDIxNjc1NSwidXNlcm5hbWUiOiJhZG1pbiJ9.3dmdGmVKK0jbT1POZqZFXAfBo4Wc49pO0RbbDL_ADI0
+
+# Workaround for remove wrong default controller
+swagger_urls = list(filter(lambda x: 'field_name' not in x.regex.pattern, router.urls))
