@@ -25,8 +25,7 @@ $(function () {
       if(window.SwaggerTranslator) {
         window.SwaggerTranslator.translate();
       }
-      addCsrfTokenHeaders();
-      addAccessTokenHeaders();
+      addApiKeyAuthorization();
     },
     onFailure: function(data) {
       log("Unable to Load SwaggerUI");
@@ -36,36 +35,18 @@ $(function () {
 
   window.swaggerUi = new SwaggerUi(settings);
 
-  window.swaggerUi.load();
+  $('#input_apiKey').change(addApiKeyAuthorization);
 
-  function addCsrfTokenHeaders() {
-    var token = $('[name="csrfmiddlewaretoken"]')[0];
-    if (!token) {
-      return;
+  function addApiKeyAuthorization(){
+    var key = encodeURIComponent($('#input_apiKey')[0].value);
+    if(key && key.trim() != "") {
+        var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("Authorization", "JWT " + key, "header");
+        window.swaggerUi.api.clientAuthorizations.add("api_key", apiKeyAuth);
+        log("added key " + key);
     }
-    swaggerUi.api.clientAuthorizations.add(
-      'csrf_token',
-      new SwaggerClient.ApiKeyAuthorization(
-        'X-CSRFToken',
-        token.value,
-        'header'
-      )
-    );
   }
-  function addAccessTokenHeaders() {
-    var token = $('#input_apiKey').val();
-    if (!token) {
-      return;
-    }
-    swaggerUi.api.clientAuthorizations.add(
-      'access_token',
-      new SwaggerClient.ApiKeyAuthorization(
-        'Authorization',
-        'JWT '+token.value,
-        'header'
-      )
-    );
-  }
+
+  window.swaggerUi.load();
 
   function log() {
     if ('console' in window) {
