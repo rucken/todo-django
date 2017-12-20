@@ -67,7 +67,9 @@ class TodoProjectsViewSet(BaseWithUsersViewSet):
         else:
             statuses = request.data.pop('statuses')
         result = super(TodoProjectsViewSet, self).update(request, *args, **kwargs)
-        project = TodoProjectSerializer.Meta.model.objects.get(pk=result.data['todo_project']['id'])
+        pk = request.data['id'] if hasattr(request.data, 'todo_project') and hasattr(result.data['todo_project'],
+                                                                                     'id') else kwargs['pk']
+        project = TodoProjectSerializer.Meta.model.objects.get(pk=pk)
         project.todostatus_set.all().exclude(id__in=map(TodoProjectsViewSet.create_status, statuses,
                                                         [project for x in range(0, len(statuses))])).delete()
         return self.to_response(project)

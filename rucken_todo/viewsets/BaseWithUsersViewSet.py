@@ -58,7 +58,9 @@ class BaseWithUsersViewSet(BaseViewSet):
     def update(self, request, *args, **kwargs):
         if 'users' not in request.data:
             request.data['users'] = []
-        items = list(self.model.objects.filter(users__id=request.user.id, id=request.data['id']))
+        pk = request.data['id'] if hasattr(request.data, 'id') else kwargs['pk']
+        items = list(self.model.objects.filter(users__id=request.user.id,
+                                               id=pk))
         if request.user.id not in request.data['users'] and len(list(items)) == 0:
             return Response({'errors': 'Not access'}, status=status.HTTP_403_FORBIDDEN)
         request.data['users'] = list(filter(lambda x: x is not None, map(self.create_user, request.data['users'])))
