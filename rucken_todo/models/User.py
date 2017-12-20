@@ -6,6 +6,7 @@ class User(django.contrib.auth.models.AbstractUser):
     date_of_birth = models.DateTimeField(null=True, blank=True)
 
     class Meta:
+        ordering = ['-id']
         permissions = (
             ("read_user", "Can read user"),
             ("read_group", "Can read group"),

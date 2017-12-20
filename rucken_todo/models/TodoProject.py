@@ -13,6 +13,7 @@ class TodoProject(models.Model):
     updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
 
     class Meta:
+        ordering = ['-id']
         permissions = (
             ("manage_todoproject", "Can manage project"),
             ("read_todoproject", "Can read project"),

@@ -14,6 +14,7 @@ class TodoStatus(models.Model):
     updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
 
     class Meta:
+        ordering = ['-id']
         permissions = (
             ("manage_todostatus", "Can manage status"),
             ("read_todostatus", "Can read status"),

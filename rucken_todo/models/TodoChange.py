@@ -20,6 +20,7 @@ class TodoChange(models.Model):
     updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
 
     class Meta:
+        ordering = ['-id']
         permissions = (
             ("manage_todochange", "Can manage change"),
             ("read_todochange", "Can read change"),

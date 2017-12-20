@@ -18,6 +18,7 @@ class TodoTask(models.Model):
     updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
 
     class Meta:
+        ordering = ['-id']
         permissions = (
             ("manage_todotask", "Can manage task"),
             ("read_todotask", "Can read task"),
