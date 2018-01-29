@@ -19,4 +19,9 @@ class AccountProfileUpdateAction(viewsets.ModelViewSet):
         user = User.objects.get(pk=request.user.pk)
         serializer = AccountSerializer(user)
         serializer.update(user, request.data)
-        return Response(serializer.data)
+        return Response(
+            {
+                'token': request.auth,
+                'user': serializer.data
+            }
+        )

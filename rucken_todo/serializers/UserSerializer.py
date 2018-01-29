@@ -12,6 +12,12 @@ from ..models import User
 class UserSerializer(DynamicModelSerializer):
     groups = DynamicRelationField(GroupSerializer, many=True, embed=True)
 
+    def to_internal_value(self, data):
+        if 'groups' in data and data['groups']:
+            data['groups'] = list(map(lambda x: x['id'], data['groups']))
+        instance = super(UserSerializer, self).to_internal_value(data)
+        return instance
+
     def to_representation(self, instance):
         data = super(UserSerializer, self).to_representation(instance)
         data['password'] = None
@@ -37,8 +43,6 @@ class UserSerializer(DynamicModelSerializer):
         if password is not None:
             instance.set_password(password)
         instance.save()
-        if groups is not None:
-            instance.groups = groups
         return instance
 
     def update(self, instance, validated_data):

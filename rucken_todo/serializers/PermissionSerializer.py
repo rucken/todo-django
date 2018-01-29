@@ -17,6 +17,8 @@ class PermissionSerializer(DynamicModelSerializer):
             data['codename'] = data['name']
         if 'title' in data and data['title']:
             data['name'] = data['title']
+        if 'content_type' in data and data['content_type']:
+            data['content_type'] = data['content_type']['id']
         instance = super(PermissionSerializer, self).to_internal_value(data)
         return instance
 
