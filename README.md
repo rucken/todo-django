@@ -1,4 +1,4 @@
-## rucken-todo-django
+## rucken-todo-django (The repository is frozen.)
 [![Updates](https://pyup.io/repos/github/rucken/todo-django/shield.svg)](https://pyup.io/repos/github/rucken/todo-django/)
 [![Requirements Status](https://requires.io/github/rucken/todo-django/requirements.svg?branch=master)](https://requires.io/github/rucken/todo-django/requirements/?branch=master)
 [![Build Status][travis-image]][travis-url]
