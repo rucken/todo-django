@@ -21,7 +21,7 @@ djangorestframework-jwt==1.11.0
 dynamic-rest==1.6.7
 gunicorn==19.7.1
 idna==2.6
-inflection==0.3.1
+inflection==0.5.0
 itypes==1.1.0
 Jinja2==2.10
 jsonpickle==0.9.5
