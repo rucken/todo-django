@@ -19,7 +19,7 @@ djangorestframework==3.7.7
 djangorestframework-camel-case==0.2.0
 djangorestframework-jwt==1.11.0
 dynamic-rest==1.6.7
-gunicorn==19.7.1
+gunicorn==20.1.0
 idna==2.6
 inflection==0.3.1
 itypes==1.1.0
