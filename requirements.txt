@@ -35,6 +35,6 @@ six==1.11.0
 sqlparse==0.2.4
 static3==0.7.0
 uritemplate==3.0.0
-urllib3==1.22
+urllib3==1.26.6
 virtualenv==15.1.0
 whitenoise==3.3.1
